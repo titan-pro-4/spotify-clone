@@ -10,7 +10,7 @@ let songs = [];
 
 async function getSongs() {
     try {
-        let response = await fetch('http://127.0.0.1:5000/songs');
+        let response = await fetch("https://titanpro4.pythonanywhere.com/songs");
         songs = await response.json();
         updateSongList();
     } catch (error) {
