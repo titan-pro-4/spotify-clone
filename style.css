@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Varela+Round&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+body {
+  background-color: #121212;
+  color:white;
+  font-family: "ubuntu", sans-serif;
+  padding-bottom: 100px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: black;
+}
+nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  height: 65px;
+  background-color: black;
+  padding: 0 20px;
+}
+nav ul li {
+  padding: 0 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+nav ul li:hover {
+  color: #1db954; 
+}
+.brand {
+  display: flex;
+  align-items: center;
+  font-weight: bolder;
+  font-size: 1.3rem;
+  margin-right: auto; /* Pushes Home/About to the right */
+}
+.brand img {
+  width: 44px;
+  padding: 0 8px;
+}
+.container {
+  min-height: 75vh;
+  background-color: black;
+  color: white;
+  font-family: "Varela Round", sans-serif;
+  display: flex;
+  width: 75%;
+  margin: 20px auto;
+  border-radius: 12px;
+  padding: 30px;
+  background-image: url('bg.jpg'); 
+  background-size: cover; 
+  background-position: center;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1); /* Soft glow */
+}
+.songlist h1 {
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px #000000;
+}
+.songItem {
+  height: 55px;
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
+  color: white;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 30px;
+  margin: 12px 0;
+  padding: 0 20px;
+  transition: transform 0.2s, background-color 0.2s;
+  cursor: pointer;
+  width: 100%; /* Fixes width issue */
+}
+
+.songItem:hover {
+  transform: scale(1.02); /* Slight zoom on hover */
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.songItem img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 20px;
+  object-fit: cover;
+}
+
+.songName {
+    flex-grow: 1; /* Pushes text to fill space */
+    font-size: 0.9rem;
+}
+
+.timestamp {
+  margin: 0 20px;
+  font-size: 0.8rem;
+}
+
+.songItemPlay {
+  cursor: pointer;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.songItemPlay:hover {
+    color: #1db954;
+}
+
+/* 5. BOTTOM PLAYER BAR */
+.bottom {
+  position: fixed;
+  height: 90px;
+  background-color: #181818; /* Slightly lighter black */
+  color: white;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 100;
+  border-top: 1px solid #282828;
+}
+
+/* 6. RANGE SLIDER BEAUTIFICATION */
+#myprogressbar {
+  width: 80vw;
+  cursor: pointer;
+  accent-color: #1db954; /* Makes the slider Green! */
+  margin-bottom: 10px;
+}
+
+.icons {
+  margin-top: 10px;
+}
+
+.icons i {
+  cursor: pointer;
+  margin: 0 15px;
+  font-size: 1.5rem;
+  transition: color 0.2s;
+}
+
+.icons i:hover {
+    color: #1db954;
+}
+
+#masterPlay {
+    font-size: 2rem; /* Make Play button bigger */
+}
+
+.songinfo {
+  position: absolute;
+  left: 10vw;
+  font-family: "Varela Round", sans-serif;
+  display: flex;
+  align-items: center;
+}
+
+.songinfo img {
+  opacity: 0;
+  transition: opacity 0.4s ease-in;
+  margin-right: 10px;
+}
+
+/* 7. MEDIA QUERIES (RESPONSIVENESS) */
+
+/* For Tablets and Smaller Laptops */
+@media screen and (max-width: 900px) {
+    .container {
+        width: 95%; /* Use full width */
+        padding: 15px;
+    }
+}
+
+/* For Mobile Phones */
+@media screen and (max-width: 600px) {
+    .brand {
+        font-size: 1rem;
+    }
+
+    .songItem {
+        padding: 0 10px;
+    }
+
+    /* Hide timestamp on very small screens to save space */
+    .timestamp { 
+        display: none; 
+    }
+
+    /* Stack the bottom player */
+    .bottom {
+        height: 120px;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .songinfo {
+        position: relative; /* Stop absolute positioning overlap */
+        left: 0;
+        margin-bottom: 10px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    #myprogressbar {
+        width: 90vw;
+    }
+}
